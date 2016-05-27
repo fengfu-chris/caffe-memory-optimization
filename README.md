@@ -6,4 +6,4 @@ Memory optimizations for caffe.
 
 ### 2. BatchNorm layer memory optimization
 
-#### Result
+#### Benchmark Result
