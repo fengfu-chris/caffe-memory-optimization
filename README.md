@@ -2,8 +2,8 @@
 
 Memory optimizations for caffe.
 
-## Backward memory optimization
+### 1. Backward memory optimization
 
-## BatchNorm layer memory optimization
+### 2. BatchNorm layer memory optimization
 
-## Result
+#### Result
