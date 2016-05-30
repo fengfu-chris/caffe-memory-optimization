@@ -1,7 +1,5 @@
-# caffe-memory-optimization
-
-Memory optimizations for caffe.
-
+Memory optimizations for Caffe.
+===
 ### 1. Backward memory optimization
 
 ### 2. BatchNorm layer memory optimization
