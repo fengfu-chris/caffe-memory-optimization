@@ -179,6 +179,9 @@ void BatchNormLayer<Dtype>::Backward_cpu(const vector<Blob<Dtype>*>& top,
     top_diff = x_norm_.cpu_diff();
   }
   Dtype* bottom_diff = bottom[0]->mutable_cpu_diff();
+  const Dtype* top_data = x_norm_.cpu_data();
+  int num = bottom[0]->shape()[0];
+  int spatial_dim = bottom[0]->count()/(bottom[0]->shape(0)*channels_);  
   if (use_global_stats_) {
     // caffe_div(temp_.count(), top_diff, temp_.cpu_data(), bottom_diff);
     
@@ -194,9 +197,6 @@ void BatchNormLayer<Dtype>::Backward_cpu(const vector<Blob<Dtype>*>& top,
 	
 	return;
   }
-  const Dtype* top_data = x_norm_.cpu_data();
-  int num = bottom[0]->shape()[0];
-  int spatial_dim = bottom[0]->count()/(bottom[0]->shape(0)*channels_);
   // if Y = (X-mean(X))/(sqrt(var(X)+eps)), then
   //
   // dE(Y)/dX =
