@@ -598,6 +598,7 @@ void Net<Dtype>::BackwardFromTo(int start, int end) {
       layers_[i]->Backward(top_vecs_[i], bottom_need_backward_[i], bottom_vecs_[i]);
 	  
 	  // MEMOPT
+	  string layer_type = layers_[i]->type();
 	  if(i != start && (
 	     layer_type == "Convolution" ||
 		 layer_type == "InnerProduct" ||
